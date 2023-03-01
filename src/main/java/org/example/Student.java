@@ -105,4 +105,12 @@ public class Student {
     public void setSurname(String surname) {
         this.surname = surname;
     }
+
+    public ArrayList<Student> getItalian() {
+        return italian;
+    }
+
+    public ArrayList<Student> getGerman() {
+        return german;
+    }
 }

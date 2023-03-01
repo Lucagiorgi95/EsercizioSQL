@@ -7,7 +7,7 @@ public class Main {
         SQLManager manager = new SQLManager();
         manager.creaTabella();
 
-        /*Student student = new Student();
+        Student student = new Student();
         student.insertStudent(1,"luca", "giorgi");
         student.insertStudent(2,"giulio","verdi");
         student.insertStudent(3,"paolo","rossi");
@@ -21,10 +21,16 @@ public class Main {
         student.aggiungiPaese("Italy",1);
         student.aggiungiPaese("Italy",2);
         student.aggiungiPaese("Germany",3);
-        student.aggiungiPaese("Germany",4);*/
+        student.aggiungiPaese("Germany",4);
 
         manager.creaVista("italian_Students","select * from students where country = \"Italy\"");
         manager.creaVista("german_Students","select * from students where country = \"Germany\"");
+
+        student.queryStudent("italian");
+        student.queryStudent("german");
+
+        System.out.println(student.getItalian());
+        System.out.println(student.getItalian());
 
 
 
