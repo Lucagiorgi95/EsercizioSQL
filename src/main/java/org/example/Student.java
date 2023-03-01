@@ -72,7 +72,7 @@ public class Student {
     //Select della vista per nazionalità ed inserimento nella lista
     public void queryStudent(String nationality){
         try {
-            st.executeQuery(String.format("select * from %_student",nationality));
+            rs = st.executeQuery(String.format("select * from %_student",nationality));
             while(rs.next()){
                 Student student = new Student(rs.getString("first_name"),rs.getString("last_name"));
                 if(nationality == "italian"){
