@@ -8,9 +8,9 @@ public class SQLManager {
     static final String user = "root";
     static final String password = "password";
 
-    Connection conn;
-    Statement st;
-    PreparedStatement ps;
+    private Connection conn;
+    private Statement st;
+    private PreparedStatement ps;
 
     //Stabilire una connessione
     public SQLManager(){
@@ -61,8 +61,4 @@ public class SQLManager {
             System.out.println(e.getMessage());
         }
     }
-
-    
-
-
 }
