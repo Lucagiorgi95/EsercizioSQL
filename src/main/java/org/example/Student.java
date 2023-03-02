@@ -25,13 +25,12 @@ public class Student {
     }
 
     //Inserimento degli studenti
-    public void insertStudent(int id, String name, String surname){
+    public void insertStudent(String name, String surname){
         try {
             connection = DriverManager.getConnection(SQLManager.host,SQLManager.user,SQLManager.password);
-            st = connection.prepareStatement("insert into students (student_id, last_name, first_name) values (?,?,?)");
-            st.setInt(1,id);
-            st.setString(2,name);
-            st.setString(3,surname);
+            st = connection.prepareStatement("insert into students (last_name, first_name) values (?,?)");
+            st.setString(1,name);
+            st.setString(2,surname);
             st.execute();
             System.out.println("Insert successfully");
         } catch (SQLException e) {
@@ -44,8 +43,7 @@ public class Student {
     public void stampaEAggiungi(){
         try {
             connection = DriverManager.getConnection(SQLManager.host,SQLManager.user,SQLManager.password);
-            st = connection.prepareStatement("select last_name, first_name from students");
-            rs = st.executeQuery();
+            rs = st.executeQuery("select last_name, first_name from students");
             while(rs.next()){
                 System.out.println(rs.getString("first_name") + " " + rs.getString("last_name"));
                 cognomi.add(rs.getString("last_name"));

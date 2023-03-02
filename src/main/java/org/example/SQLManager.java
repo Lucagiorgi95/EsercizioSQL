@@ -42,7 +42,7 @@ public class SQLManager {
     //Aggiungere una colonna alla tabella
     public void aggiungiColonna() {
         try {
-            st.execute("alter table students add column country varchar(30) null after first_name");
+            st.execute("alter table students add column country varchar(30) after first_name");
             System.out.println("Column is created");
         } catch (SQLException e) {
             System.out.println("The column has not been added");
@@ -53,9 +53,8 @@ public class SQLManager {
     // Crea una vista
     public void creaVista(String viewName, String query){
         try {
-            ps = conn.prepareStatement("create view ? as (?);");
-            ps.setString(1,viewName);
-            ps.setString(2,query);
+            ps = conn.prepareStatement(String.format("create view \'%s\' as (?);",viewName));
+            ps.setString(1,query);
             ps.execute();
         } catch (SQLException e) {
             System.out.println("Impossible create a view");

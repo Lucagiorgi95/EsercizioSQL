@@ -8,10 +8,10 @@ public class Main {
         manager.creaTabella();
 
         Student student = new Student();
-        student.insertStudent(1,"luca", "giorgi");
-        student.insertStudent(2,"giulio","verdi");
-        student.insertStudent(3,"paolo","rossi");
-        student.insertStudent(4,"elena","blu");
+        student.insertStudent("luca", "giorgi");
+        student.insertStudent("giulio","verdi");
+        student.insertStudent("paolo","rossi");
+        student.insertStudent("elena","blu");
 
         student.stampaEAggiungi();
         System.out.println(student.getCognomi());
@@ -23,8 +23,8 @@ public class Main {
         student.aggiungiPaese("Germany",3);
         student.aggiungiPaese("Germany",4);
 
-        manager.creaVista("italian_Students","select * from students where country = \"Italy\"");
-        manager.creaVista("german_Students","select * from students where country = \"Germany\"");
+        manager.creaVista("italianstudents","select * from students where country = \"Italy\"");
+        manager.creaVista("germanstudents","select * from students where country = \"Germany\"");
 
         student.queryStudent("italian");
         student.queryStudent("german");
